@@ -1197,7 +1197,8 @@ class PowerDNS extends Common_functions {
      */
     private function validate_record_name ($name) {
         // null is ok, otherwise URI is required
-        if (strlen($name)>0 && !$this->validate_hostname($name)){ $this->Result->show("danger", _("Invalid record name"), true); }
+	// strip trailing *. as this will invalidate the hostname, but is valid for PowerDNS
+        if (strlen($name)>0 && !$this->validate_hostname(preg_replace('/^\*\./i', '', $name ))){ $this->Result->show("danger", _("Invalid record name"), true); }
         // ok
         return $name;
     }
