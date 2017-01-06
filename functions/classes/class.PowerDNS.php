@@ -328,7 +328,8 @@ class PowerDNS extends Common_functions {
         // init
         $ttl = array();
         // set array
-        $ttl[60]     = "1 minute";
+        $ttl[5]     = "5 seconds";
+	$ttl[60]     = "1 minute";
         $ttl[180]     = "3 minutes";
         $ttl[300]    = "5 minutes";
         $ttl[600]    = "10 minutes";
